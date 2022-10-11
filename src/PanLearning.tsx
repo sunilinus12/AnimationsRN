@@ -35,12 +35,13 @@ export default function PanLearning() {
         });
       },
       //   onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}]),
-        onPanResponderMove: (_, gesture) => {
-          pan.x.setValue(gesture.dx);
-          pan.y.setValue(gesture.dy);
-        },
+      onPanResponderMove: (_, gesture) => {
+        pan.x.setValue(gesture.dx);
+        pan.y.setValue(gesture.dy);
+      },
       onPanResponderRelease: () => {
         pan.flattenOffset();
+        //sets the offset value 0 after release the ball and value=value+offset
       },
     }),
   ).current;
