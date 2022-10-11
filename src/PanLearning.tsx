@@ -34,7 +34,11 @@ export default function PanLearning() {
           y: pan.y._value,
         });
       },
-      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}]),
+      //   onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}]),
+        onPanResponderMove: (_, gesture) => {
+          pan.x.setValue(gesture.dx);
+          pan.y.setValue(gesture.dy);
+        },
       onPanResponderRelease: () => {
         pan.flattenOffset();
       },
@@ -44,7 +48,14 @@ export default function PanLearning() {
   return (
     <View style={styles.container}>
       <Animated.View
-        style={[styles.box, pan.getLayout()]}
+        style={[
+          styles.box,
+          {
+            left: pan.x,
+            top: pan.y,
+          },
+          // pan.getLayout()
+        ]}
         {...panResponder.panHandlers}
       />
     </View>
