@@ -76,4 +76,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     borderRadius: 50,
   },
+  sliderwrap: {
+    flex: 0.2,
+    backgroundColor: 'red',
+    height: 50,
+    width: '100%',
+  },
 });
